@@ -3,7 +3,7 @@
 Sistema web para um minimercado com catálogo de produtos e serviços.
 
 ## Acesso
-- **Site:** [https://seu-usuario.github.io/minimercado-web/](https://seu-usuario.github.io/minimercado-web/)
+- **Site:** [https://FaiedoWK.github.io/minimercado-web/](https://FaiedoWK.github.io/minimercado-web/)
 - **Páginas:**
   - Início: `index.html`
   - Produtos: `produtos.html`
