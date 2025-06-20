@@ -4,71 +4,284 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiniMercado SS - Produtos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* ESTILOS GLOBAIS (iguais ao index.html) */
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #388e3c;
+            --accent-color: #7cb342;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --text-color: #424242;
+            --white: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-cadastro {
+            background-color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .btn-cadastro:hover {
+            background-color: #689f38;
+        }
+        
+        main {
+            padding: 2rem 0;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1.5rem;
+            }
+            
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Nossos Produtos</h1>
-        <nav>
-            <a href="index.html">Início</a> |
-            <a href="produtos.html">Produtos</a> |
-            <a href="servicos.html">Serviços</a>
-        </nav>
+        <div class="container header-content">
+            <h1>MiniMercado SS</h1>
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="cadastro.html" class="btn-cadastro">Cadastre-se</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
+    <main class="container">
+        <h2 class="section-title">Nossos Produtos</h2>
+        
         <!-- Frutas e Verduras -->
         <section>
-            <h2>Frutas e Verduras</h2>
-            <article>
-                <h3>Banana Prata</h3>
-                <img src="assets/imagens/banana.jpg" alt="Banana" width="150">
-                <p>R$ 5,99/kg</p>
-            </article>
-            <article>
-                <h3>Maçã Argentina</h3>
-                <img src="assets/imagens/maca.jpg" alt="Maçã" width="150">
-                <p>R$ 8,50/kg</p>
-            </article>
+            <h3 class="section-title">Frutas e Verduras</h3>
+            <div class="products-grid">
+                <article class="product-card">
+                    <img src="assets/imagens/banana.jpg" alt="Banana Prata" class="product-image">
+                    <div class="product-info">
+                        <h3>Banana Prata</h3>
+                        <p class="product-price">R$ 5,99/kg</p>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="assets/imagens/maca.jpg" alt="Maçã Argentina" class="product-image">
+                    <div class="product-info">
+                        <h3>Maçã Argentina</h3>
+                        <p class="product-price">R$ 8,50/kg</p>
+                    </div>
+                </article>
+            </div>
         </section>
-
-        <!-- Não Perecíveis -->
+        
+        <!-- Alimentos Não Perecíveis -->
         <section>
-            <h2>Alimentos Não Perecíveis</h2>
-            <article>
-                <h3>Arroz Integral</h3>
-                <img src="assets/imagens/arroz.jpg" alt="Arroz" width="150">
-                <p>R$ 22,90 (5kg)</p>
-            </article>
-            <article>
-                <h3>Feijão Carioca</h3>
-                <img src="assets/imagens/feijao.jpg" alt="Feijão" width="150">
-                <p>R$ 9,80 (1kg)</p>
-            </article>
+            <h3 class="section-title">Alimentos Não Perecíveis</h3>
+            <div class="products-grid">
+                <article class="product-card">
+                    <img src="assets/imagens/arroz.jpg" alt="Arroz Integral" class="product-image">
+                    <div class="product-info">
+                        <h3>Arroz Integral</h3>
+                        <p class="product-price">R$ 22,90 (5kg)</p>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="assets/imagens/feijao.jpg" alt="Feijão Carioca" class="product-image">
+                    <div class="product-info">
+                        <h3>Feijão Carioca</h3>
+                        <p class="product-price">R$ 9,80 (1kg)</p>
+                    </div>
+                </article>
+            </div>
         </section>
-
+        
         <!-- Higiene e Limpeza -->
         <section>
-            <h2>Higiene e Limpeza</h2>
-            <article>
-                <h3>Sabonete Líquido</h3>
-                <img src="assets/imagens/sabonete.jpg" alt="Sabonete" width="150">
-                <p>R$ 12,50 (500ml)</p>
-            </article>
-            <article>
-                <h3>Detergente Neutro</h3>
-                <img src="assets/imagens/detergente.jpg" alt="Detergente" width="150">
-                <p>R$ 3,90 (500ml)</p>
-            </article>
+            <h3 class="section-title">Higiene e Limpeza</h3>
+            <div class="products-grid">
+                <article class="product-card">
+                    <img src="assets/imagens/sabonete.jpg" alt="Sabonete Líquido" class="product-image">
+                    <div class="product-info">
+                        <h3>Sabonete Líquido</h3>
+                        <p class="product-price">R$ 12,50 (500ml)</p>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="assets/imagens/detergente.jpg" alt="Detergente Neutro" class="product-image">
+                    <div class="product-info">
+                        <h3>Detergente Neutro</h3>
+                        <p class="product-price">R$ 3,90 (500ml)</p>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
     <footer>
-    <p>© 2025 MiniMercado SS | CNPJ: 01.234.567/8910-12</p>
-    <p>Contato: contato@supersuper.com | (11) 98765-4321</p>
-    <p>Desenvolvido por Samuel de Freitas Aiedo</p>
-    <nav>
-        <a href="index.html">Início</a> |
-        <a href="produtos.html">Produtos</a> |
-        <a href="servicos.html">Serviços</a>
-    </nav>
-</footer>
+        <div class="container footer-content">
+            <p>© 2025 MiniMercado SS | CNPJ: 01.234.567/8910-12</p>
+            <p>Contato: contato@supersuper.com | (11) 98765-4321</p>
+            <p>Desenvolvido por Samuel de Freitas Aiedo</p>
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="servicos.html">Serviços</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

@@ -3,46 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiniMercado Web - Início</title>
+    <title>MiniMercado SS - Início</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #388e3c;
+            --accent-color: #7cb342;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --text-color: #424242;
+            --white: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            margin-top: 1rem;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .btn-cadastro {
+            background-color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .btn-cadastro:hover {
+            background-color: #689f38;
+        }
+        
+        main {
+            padding: 2rem 0;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .welcome-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .welcome-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-section {
+            margin-bottom: 3rem;
+        }
+        
+        .featured-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .featured-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cta-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                width: 100%;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+                margin: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>MiniMercado SS</h1>
-        <nav>
-            <a href="index.html">Início</a> |
-            <a href="produtos.html">Produtos</a> |
-            <a href="servicos.html">Serviços</a>
-        </nav>
+        <div class="container header-content">
+            <h1>MiniMercado SS</h1>
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="cadastro.html" class="btn-cadastro">Cadastre-se</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section>
+    <main class="container">
+        <section class="welcome-section">
             <h2>Bem-vindo ao MiniMercado SS!</h2>
-            <p>Encontre os melhores produtos e serviços com facilidade.</p>
+            <p>Encontre os melhores produtos e serviços com facilidade. Faça seu cadastro e ganhe 10% de desconto na primeira compra!</p>
         </section>
 
-        <section>
+        <section class="featured-section">
             <h3>Destaques da Semana</h3>
-            <article>
-                <h4>Banana Prata</h4>
-                <img src="assets/imagens/banana.jpg" alt="Banana" width="150">
-                <p>R$ 5,99/kg</p>
-            </article>
-            <article>
-                <h4>Arroz Integral</h4>
-                <img src="assets/imagens/arroz.jpg" alt="Arroz" width="150">
-                <p>R$ 22,90 (5kg)</p>
-            </article>
+            <div class="products-grid">
+                <article class="product-card">
+                    <img src="assets/imagens/banana.jpg" alt="Banana Prata" class="product-image">
+                    <div class="product-info">
+                        <h4>Banana Prata</h4>
+                        <p class="product-price">R$ 5,99/kg</p>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="assets/imagens/arroz.jpg" alt="Arroz Integral" class="product-image">
+                    <div class="product-info">
+                        <h4>Arroz Integral</h4>
+                        <p class="product-price">R$ 22,90 (5kg)</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h3>Quer receber ofertas exclusivas?</h3>
+            <p>Cadastre-se agora e tenha acesso a promoções especiais!</p>
+            <a href="cadastro.html" class="btn">Fazer Cadastro</a>
         </section>
     </main>
 
     <footer>
-    <p>© 2025 MiniMercado SS | CNPJ: 01.234.567/8910-12</p>
-    <p>Contato: contato@supersuper.com | (11) 98765-4321</p>
-    <p>Desenvolvido por Samuel de Freitas Aiedo</p>
-    <nav>
-        <a href="index.html">Início</a> |
-        <a href="produtos.html">Produtos</a> |
-        <a href="servicos.html">Serviços</a>
-    </nav>
-</footer>
+        <div class="container footer-content">
+            <p>© 2025 MiniMercado SS | CNPJ: 01.234.567/8910-12</p>
+            <p>Contato: contato@supersuper.com | (11) 98765-4321</p>
+            <p>Desenvolvido por Samuel de Freitas Aiedo</p>
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="cadastro.html">Cadastro</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
