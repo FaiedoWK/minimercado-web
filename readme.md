@@ -1,18 +1,22 @@
-# MiniMercado Web
+# MiniMercado Web - Fase 2
 
-Sistema web para um minimercado com catálogo de produtos e serviços.
+## Funcionalidades Implementadas
+✅ Catálogo de produtos organizado por categorias  
+✅ Serviços de retirada e entrega com agendamento  
+✅ Formulário de cadastro com validação  
+✅ Design responsivo com Bootstrap  
+✅ Contador de ofertas em tempo real  
 
-## Acesso
-- **Site:** [https://seu-usuario.github.io/minimercado-web/](https://seu-usuario.github.io/minimercado-web/)
-- **Páginas:**
-  - Início: `index.html`
-  - Produtos: `produtos.html`
-  - Serviços: `servicos.html`
+## Como Executar
+1. Acesse o site: [https://FaiedoWK.github.io/minimercado-web](https://FaiedoWK.github.io/minimercado-web)
+2. Navegue pelas páginas:
+   - `/index.html` - Página inicial
+   - `/produtos.html` - Catálogo completo
+   - `/servicos.html` - Serviços oferecidos
+   - `/cadastro.html` - Formulário de agendamento
 
-## Estrutura
-- **Produtos:** 6 itens (2 por categoria).
-- **Serviços:** Retirada no local e tele-entrega.
-
-## Tecnologias
-- HTML5 (Fase 1)
-- Futuro: CSS e JavaScript (Fase 2)
+## Tecnologias Utilizadas
+- HTML5 Semântico
+- CSS3
+- Bootstrap 5
+- JavaScript
